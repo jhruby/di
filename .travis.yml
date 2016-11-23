@@ -29,13 +29,10 @@ matrix:
 
   include:
   - os: linux
-    env: BS=cmake CXX=clang++-4.0
+    env: BS=cmake CXX=clang++-4.0 CXXFLAGS=-stdlib=libc++
     addons:
         apt:
-            packages:
-              - *base_packages
-              - clang-4.0
-              - libc++-dev
+            packages: [*base_packages, clang-4.0, libc++-dev]
             sources:
               - *base_sources
               - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main'
