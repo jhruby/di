@@ -34,11 +34,15 @@ matrix:
   - os: linux
     env: BS=cmake CXX=clang++-4.0
     addons:
-      apt:
-        packages: [*base_packages, "clang-4.0", "gdb"]
-        sources: [*base_sources]
-        sourceline: ["deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main"]
-        key_url: ["http://apt.llvm.org/llvm-snapshot.gpg.key"]
+        apt:
+            packages:
+              - *base_packages
+              - clang-4.0
+              - libc++-dev
+            sources:
+              - *base_sources
+              - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main'
+                key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
 
 before_install:
   - git config --global user.name "Continuous Integration"
