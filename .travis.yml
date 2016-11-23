@@ -4,8 +4,9 @@
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #
-sudo: false
+os: linux
 dist: trusty
+sudo: required
 language: cpp
 env:
   global:
@@ -20,6 +21,12 @@ branches:
 git:
   depth: 1
 
+addons:
+    apt:
+        packages: &base_packages
+        sources: &base_sources
+          - ubuntu-toolchain-r-test
+
 matrix:
   fast_finish: true
 
@@ -28,11 +35,10 @@ matrix:
     env: BS=cmake CXX=clang++-4.0
     addons:
       apt:
-        packages: ["clang-4.0", "gdb"]
-        sources: ["ubuntu-toolchain-r-test"]
+        packages: [*base_packages, "clang-4.0", "gdb"]
+        sources: [*base_sources]
         sourceline: ["deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main"]
         key_url: ["http://apt.llvm.org/llvm-snapshot.gpg.key"]
-
 
 before_install:
   - git config --global user.name "Continuous Integration"
