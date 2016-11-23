@@ -23,7 +23,7 @@ matrix:
 
   include:
   - os: linux
-    env: BS=cmake CXX=clang++-4.0 CXXFLAGS=-stdlib=libc++
+    env: BS=cmake CXX=clang++-4.0
     addons:
       apt:
         packages: ["clang-4.0", "libc++-dev"]
