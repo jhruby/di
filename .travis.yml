@@ -28,9 +28,7 @@ matrix:
       apt:
         packages: ["clang-4.0", "libc++-dev"]
         sources:
-          - sourceline: 'ppa:ubuntu-toolchain-r/test'
-          - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main'
-            key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
+          - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main' key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
 
 before_install:
   - git config --global user.name "Continuous Integration"
